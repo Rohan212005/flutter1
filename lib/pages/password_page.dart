@@ -72,7 +72,7 @@ class _PasswordPageState extends State<PasswordPage> {
                       ),
                     ),
                     SizedBox(height: 40),
-                    // Password Field
+                  
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -110,11 +110,11 @@ class _PasswordPageState extends State<PasswordPage> {
                     ),
                     if (isPasswordFieldFocused) ...[
                       SizedBox(height: 10),
-                      // Password Strength Indicator
+                      
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Strength bar
+                         
                           Container(
                             height: 10,
                             width: MediaQuery.of(context).size.width * 1,
@@ -136,7 +136,7 @@ class _PasswordPageState extends State<PasswordPage> {
                             ),
                           ),
                           SizedBox(height: 5),
-                          // Strength text below the bar
+                          
                           Text(
                             passwordStrength,
                             style: TextStyle(color: Colors.white, fontSize: 14),
@@ -145,7 +145,7 @@ class _PasswordPageState extends State<PasswordPage> {
                       ),
                     ],
                     SizedBox(height: 20),
-                    // Confirm Password Field
+                   
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Text(
@@ -175,36 +175,36 @@ class _PasswordPageState extends State<PasswordPage> {
                       },
                     ),
                     SizedBox(height: 30),
-                    // Submit Button
+                   
                     ElevatedButton(
     onPressed: () async {
       if (_formKey.currentState!.validate()) {
         try {
-          // Show loading indicator
+     
           showDialog(
             context: context,
             barrierDismissible: false,
             builder: (context) => Center(child: CircularProgressIndicator()),
           );
 
-          // Get the password
+      
           final password = passwordController.text.trim();
 
-          // Access the registration data passed from RegisterPage
+         
           final fullName = widget.registrationData['fullName'] as String;
           final email = widget.registrationData['email'] as String;
           final phoneNumber = widget.registrationData['phoneNumber'] as String;
           final gender = widget.registrationData['gender'] as String;
           final dob = widget.registrationData['birthDate'] as DateTime?;
 
-          // Create user with email and password
+      
           UserCredential userCredential = await FirebaseAuth.instance
               .createUserWithEmailAndPassword(
             email: email,
             password: password,
           );
 
-          // Add user data to Firestore
+   
           await FirebaseFirestore.instance
               .collection('users')
               .doc(userCredential.user!.uid)
@@ -217,7 +217,7 @@ class _PasswordPageState extends State<PasswordPage> {
             'uid': userCredential.user!.uid // Store the user ID
           });
 
-          // Navigate to AuthPage (OTP page) and pass the uid
+         
           Navigator.of(context).pop(); // Dismiss loading indicator
           Navigator.push(
             context,
