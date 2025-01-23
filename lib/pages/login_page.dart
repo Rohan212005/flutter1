@@ -21,59 +21,59 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<void> _signInWithGoogle() async {
   try {
-    // Sign out from Google Sign-In (if already signed in)
+    
     if (await GoogleSignIn().isSignedIn()) {
       await GoogleSignIn().signOut();
     }
-    // Trigger the Google authentication flow
+    
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
-    // Obtain the auth details from the request
+    
     final GoogleSignInAuthentication? googleAuth =
         await googleUser?.authentication;
 
     if (googleAuth != null) {
-      // Create a new credential
+      
       final OAuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleAuth.accessToken,
         idToken: googleAuth.idToken,
       );
 
-      // Sign in to Firebase with the Google credential
+      
       final UserCredential userCredential =
           await FirebaseAuth.instance.signInWithCredential(credential);
 
-      // Extract user data
+     
       final User? user = userCredential.user;
       final String? displayName = user?.displayName;
       final String? email = user?.email;
       final String? phoneNumber = user?.phoneNumber;
       final String? photoURL = user?.photoURL;
 
-      // Prepare user data to be passed to HomePage or stored directly
+      
       final Map<String, dynamic> userData = {
         'uid': user?.uid,
         'fullName': displayName,
         'email': email,
         'phoneNumber': phoneNumber,
         'photoURL': photoURL,
-        // Add other necessary fields
+        
       };
 
-      // Set logged-in status to true using shared_preferences
+      
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setBool('isLoggedIn', true);
 
-      // Display success message
+      
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("Successfully logged in!")),
       );
 
-      // Navigate to HomePage and remove the LoginPage from the stack
+      
       Navigator.pushReplacementNamed(context, '/home', arguments: {'showSnackbar': true});
 
     } else {
-      // Handle the case where googleAuth is null, perhaps by showing an error.
+     
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("Google Sign-In failed.")),
       );
@@ -209,7 +209,7 @@ class _LoginPageState extends State<LoginPage> {
                             final email = emailController.text.trim();
                             final password = passwordController.text.trim();
 
-                            // Sign in with email and password
+                            
                             await FirebaseAuth.instance
                                 .signInWithEmailAndPassword(
                               email: email,
@@ -218,7 +218,7 @@ class _LoginPageState extends State<LoginPage> {
 
                             Navigator.of(context).pop(); // Dismiss loading indicator
 
-                            // Navigate to AuthPage for OTP verification
+                           
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -341,7 +341,7 @@ class _LoginPageState extends State<LoginPage> {
                               fontSize: 16,
                             ),
                             onPressed: () {
-                              // TODO: Implement Facebook Sign-In logic
+                              
                             },
                           ),
                         ),
