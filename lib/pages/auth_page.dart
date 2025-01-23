@@ -29,7 +29,6 @@ class _AuthPageState extends State<AuthPage> {
   @override
   void initState() {
     super.initState();
-    // Generate and send OTP when the page initializes
     otp = generateOTP();
     sendOTPEmail(widget.email, otp);
   }
@@ -132,17 +131,16 @@ class _AuthPageState extends State<AuthPage> {
       );
     }
   },
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 48, vertical: 16),
-                          backgroundColor: Colors.green,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          elevation: 8,
-                        ),
-                        child: Text(
-                          "Submit",
+     style: ElevatedButton.styleFrom(
+       padding: EdgeInsets.symmetric(
+         horizontal: 48, vertical: 16),
+       backgroundColor: Colors.green,
+       shape: RoundedRectangleBorder(
+         borderRadius: BorderRadius.circular(30),
+       ),
+       elevation: 8,
+     ),
+                child: Text("Submit",
                           style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       ),
@@ -157,7 +155,7 @@ class _AuthPageState extends State<AuthPage> {
     );
   }
 
-  // Widget for individual OTP input field
+  
   Widget _otpField(int index) {
     return TextFormField(
       controller: controllers[index],
@@ -215,11 +213,11 @@ class _AuthPageState extends State<AuthPage> {
   // Function to send OTP email
   Future<void> sendOTPEmail(String email, String otp) async {
     final smtpServer =
-        gmail('rohansmauryasm@gmail.com', 'nzyh dgeg xhrc ihgq'); // Replace
+        gmail('rohansmauryasm@gmail.com', 'nzyh dgeg xhrc ihgq'); 
 
     final message = Message()
       ..from = Address(
-          'rohansmauryasm@gmail.com', 'RohanMaurya') // Replace with your name
+          'rohansmauryasm@gmail.com', 'RohanMaurya') 
       ..recipients.add(email)
       ..subject = 'Your OTP for Verification'
       ..text = 'Your OTP is: $otp';
