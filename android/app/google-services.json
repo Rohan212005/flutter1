@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "197971236822",
+    "project_id": "project-rohan-ad72e",
+    "storage_bucket": "project-rohan-ad72e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197971236822:android:bac3f1fd4ae74eb5fc3677",
+        "android_client_info": {
+          "package_name": "com.example.flutter_project_rohan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "197971236822-72qvlgikss9kj6i1cghd1ocnr4e32a77.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutter_project_rohan",
+            "certificate_hash": "d86831869e16d3edc438dc10902630a6e299ddd2"
+          }
+        },
+        {
+          "client_id": "197971236822-ll6morfluh5r5ggtef0lrdsomvns4uro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbckR0PGHbBBpse1iW1LLtDQBfi7BhMkI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "197971236822-ll6morfluh5r5ggtef0lrdsomvns4uro.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "197971236822-ts0nt25hdk02mp80faqmgu0n4rab0rtn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterProjectRohan"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197971236822:android:ea136ce4716b52edfc3677",
+        "android_client_info": {
+          "package_name": "com.example.flutterfire_cli"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "197971236822-j8oreqjvq0t970rrv7no1qsfagtaf5je.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutterfire_cli",
+            "certificate_hash": "d86831869e16d3edc438dc10902630a6e299ddd2"
+          }
+        },
+        {
+          "client_id": "197971236822-ll6morfluh5r5ggtef0lrdsomvns4uro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbckR0PGHbBBpse1iW1LLtDQBfi7BhMkI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "197971236822-ll6morfluh5r5ggtef0lrdsomvns4uro.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "197971236822-ts0nt25hdk02mp80faqmgu0n4rab0rtn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterProjectRohan"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
