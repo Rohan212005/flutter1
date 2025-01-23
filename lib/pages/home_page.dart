@@ -195,10 +195,10 @@ class _HomePageState extends State<HomePage> {
   try {
     await FirebaseAuth.instance.signOut();
 
-    // Sign out from Google Sign-In
+    
     await GoogleSignIn().signOut();
 
-    // Clear logged-in status
+    
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool('isLoggedIn', false);
 
