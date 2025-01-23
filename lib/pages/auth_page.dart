@@ -100,7 +100,7 @@ class _AuthPageState extends State<AuthPage> {
                       alignment: Alignment.centerLeft,
                       child: ElevatedButton(
   onPressed: () async {
-    // Collect the OTP from the input fields
+    
     final enteredOTP = controllers.map((controller) => controller.text).join();
 
     if (enteredOTP == otp) {
