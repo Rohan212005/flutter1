@@ -6,7 +6,7 @@ import '../widgets/background_painter.dart';
 
 class VideoCallPage extends StatefulWidget {
   final int uid;
-  final String roomId; // Receiving the room ID from the Home Page
+  final String roomId;
 
   VideoCallPage({
     Key? key,
@@ -27,7 +27,7 @@ class _VideoCallPageState extends State<VideoCallPage> {
   Map<int, bool> remoteVideoStatus = {};
   Future<void>? _initializeAgoraFuture;
 
-  // Agora details
+
   final String appId = "4fc68fece37a45fbaa7745b94a66d100";
   final String token =
       "007eJxTYPhy+b/4vYVXJl76cna+p4lLOo/k0xXnFlSdFf/42M1gw92LCgwmaclmFmmpyanG5okmpmlJiYnm5iamSZYmiWZmKYYGBnV1nekNgYwMj1zCWBkZIBDE52YISS0uiS/LTEnNN2RgAACoMCYN";
@@ -149,14 +149,14 @@ class _VideoCallPageState extends State<VideoCallPage> {
                 title: Text('Flip Camera', style: TextStyle(color: Colors.white)),
                 onTap: () {
                   _flipCamera();
-                  Navigator.pop(context); // Close the bottom sheet
+                  Navigator.pop(context); 
                 },
               ),
               ListTile(
                 leading: Icon(Icons.share, color: Colors.white),
                 title: Text('Share Room ID', style: TextStyle(color: Colors.white)),
                 onTap: () {
-                  Navigator.pop(context); // Close the bottom sheet
+                  Navigator.pop(context); 
                   showDialog(
                     context: context,
                     builder: (context) {
@@ -166,7 +166,7 @@ class _VideoCallPageState extends State<VideoCallPage> {
                         actions: [
                           TextButton(
                             onPressed: () {
-                              Navigator.pop(context); // Close the dialog
+                              Navigator.pop(context); 
                             },
                             child: Text('OK'),
                           ),
