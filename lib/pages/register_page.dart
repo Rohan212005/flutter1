@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'password_page.dart';
 import '../widgets/background_painter.dart';
 
-// Global variable to store temporary registration data
+
 Map<String, dynamic> tempRegistrationData = {};
 
 class RegisterPage extends StatefulWidget {
@@ -73,7 +73,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     },
                   ),
 
-                  // Email Field
+                 
                   _buildLabel("Email"),
                   _buildTextFormField(
                     controller: emailController,
@@ -93,25 +93,24 @@ class _RegisterPageState extends State<RegisterPage> {
                     },
                   ),
 
-                  // Phone Number Field
                   _buildLabel("Phone Number"),
                   _buildPhoneNumberField(),
 
-                  // Gender Field
+                
                   _buildLabel("Gender"),
                   _buildGenderDropdown(),
 
-                  // Date of Birth Field
+              
                   _buildLabel("Date of Birth"),
                   _buildDateOfBirthField(),
 
                   SizedBox(height: 20),
-                  // Submit Button
+              
                   Align(
                     alignment: Alignment.centerLeft,
                     child: ElevatedButton(
                       onPressed: () async {
-                        // Set all fields to be validated
+                       
                         setState(() {
                           fieldValidationStatus = {
                             'fullName': true,
@@ -122,12 +121,12 @@ class _RegisterPageState extends State<RegisterPage> {
                           };
                         });
 
-                        // Validate all fields
+                     
                         if (_formKey.currentState!.validate()) {
-                          // Combine country code and phone number
+                         
                           String fullPhoneNumber = '$selectedCountryCode${phoneController.text}';
 
-                          // Store user data in the global variable
+                        
                           tempRegistrationData = {
                             'fullName': fullNameController.text.trim(),
                             'email': emailController.text.trim(),
@@ -140,35 +139,35 @@ class _RegisterPageState extends State<RegisterPage> {
                             final email = tempRegistrationData['email'] as String;
                             final phoneNumber = tempRegistrationData['phoneNumber'] as String;
 
-                            // Check if email already exists
+                          
                             final QuerySnapshot emailQuery = await FirebaseFirestore.instance
                                 .collection('users')
                                 .where('email', isEqualTo: email)
                                 .get();
 
                             if (emailQuery.docs.isNotEmpty) {
-                              // Email already exists
+                         
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text("An account with this email already exists.")),
                               );
-                              return; // Prevent further registration
+                              return; 
                             }
 
-                            // Check if phone number already exists
+                          
                             final QuerySnapshot phoneQuery = await FirebaseFirestore.instance
                                 .collection('users')
                                 .where('phoneNumber', isEqualTo: phoneNumber)
                                 .get();
 
                             if (phoneQuery.docs.isNotEmpty) {
-                              // Phone number already exists
+                             
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(content: Text("An account with this phone number already exists.")),
                               );
-                              return; // Prevent further registration
+                              return;
                             }
 
-                            // Navigate to PasswordPage (no data saving here)
+                         
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -178,7 +177,7 @@ class _RegisterPageState extends State<RegisterPage> {
                               ),
                             );
                           } on FirebaseException catch (e) {
-                            // Handle Firestore errors (e.g., show a SnackBar)
+                           
                             print("Error checking for duplicates: ${e.message}");
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(content: Text("Error registering user. Please try again.")),
@@ -201,7 +200,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
 
-                  // Login Link
+         
                   Center(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -268,7 +267,7 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
         validator: validator,
         onTap: () {
-          // Clear validation status for this field when user starts editing
+          
           setState(() {
             fieldValidationStatus[fieldKey] = false;
           });
